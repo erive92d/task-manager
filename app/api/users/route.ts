@@ -3,7 +3,6 @@ import connect from "@/db";
 import User from "@/models/User"
 
 export const GET = async (request: any) => {
-    console.log(request)
     try {
         await connect()
         console.log("connected to the posts")

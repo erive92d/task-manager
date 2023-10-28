@@ -1,5 +1,4 @@
-import mongoose, { Schema, model } from "mongoose";
-import bcrypt from "bcrypt";
+import mongoose, { Schema, models } from "mongoose";
 
 const userSchema = new Schema(
   {
@@ -41,8 +40,6 @@ const userSchema = new Schema(
 // };
 
 
-
-
-const User = mongoose.models.User || model("User", userSchema);
+const User = models.User || mongoose.model("User", userSchema)
 
 export default User

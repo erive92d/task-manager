@@ -10,8 +10,6 @@ const connect = async () => {
   } as ConnectOptions; 
 
   const uri = process.env.MONGODB_URL
-
-
   if(!uri) {
     throw new Error("MONGO URI is not defined")
   }

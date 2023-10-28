@@ -1,9 +1,15 @@
 import Image from 'next/image'
 import Landing from './components/Landing'
-import Navigation from './components/Navigation'
-import handler from './api/users'
+import {getServerSession} from "next-auth"
+import { redirect } from 'next/navigation'
+import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 
-export default function Home() {
+export default async function Home() {
+  const session = await getServerSession(authOptions)
+    if(session) {
+        console.log(session.user)
+        redirect("/dashboard")
+    }
   return (
     <div>
       <Landing/>
