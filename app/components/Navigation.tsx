@@ -1,4 +1,5 @@
 
+import Link from 'next/link'
 import React from 'react'
 
 export default function Navigation() {
@@ -22,7 +23,7 @@ export default function Navigation() {
                     <li><a>Item 3</a></li>
                 </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">Task Manager</a>
+                <Link href="/" className="btn btn-ghost normal-case text-xl">Task Manager</Link>
             </div>
             <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

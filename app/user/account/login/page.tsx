@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 export default function Login() {
@@ -9,8 +10,12 @@ export default function Login() {
           <input type="text" placeholder="username" className="input input-bordered w-full max-w-xs" />
           <input type="text" placeholder="password" className="input input-bordered w-full max-w-xs" />    
         </div>
-        <div>
+        <div className='flex gap-2'>
           <button className='btn btn-success'>Login</button>
+          <Link href="/user/account/register">
+            <button className='btn btn-info'>Signup</button>
+
+          </Link>
         </div>     
         
       </div>
