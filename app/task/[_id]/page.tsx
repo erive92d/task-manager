@@ -8,7 +8,7 @@ type TaskProps = {
 }
 
 export default async function grabTask({params}:TaskProps) {
-  //make a api endpoint for single task
+
   const task = await getSingleTask(params._id)
 
   return (
