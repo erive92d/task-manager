@@ -2,6 +2,7 @@
 
 import { signOut } from "next-auth/react"
 import { useSession } from "next-auth/react"
+import TaskLists from "./TaskLists";
 
 export default function UserInfo() {
     const { data:session } = useSession();
@@ -11,15 +12,14 @@ export default function UserInfo() {
     }
 
   return (
-    <div>
-        <div>
-            <div>
-                <h1>{session.user?.name}</h1>
-                <h1>{session.user?.email}</h1>
-
+    <div className="bg-white  flex flex-col mx-auto rounded-md p-2">
+            <div className="border-b py-4">
+                <h1 className="text-2xl font-bold">Welcome {session.user?.name}!</h1>
             </div>
-            <button className="btn" onClick={() => signOut()}> LogOut</button>
-        </div>
+            <div>
+                <TaskLists/>
+            </div>
+       
     </div>
   )
 }

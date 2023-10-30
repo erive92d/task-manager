@@ -23,11 +23,12 @@ export default function RootLayout({
     <html lang="en" className='bg-slate-200 text-gray-800'>
    
       <body className={inter.className}>
-      <Navigation/>
-        <AuthProvider>
-          {children}
-        </AuthProvider>
-        </body>
+          <AuthProvider>
+            <Navigation/>
+            {children}
+            </AuthProvider>
+          </body>
+        
     </html>
   )
 }

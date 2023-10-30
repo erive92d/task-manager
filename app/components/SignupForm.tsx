@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { FormEvent } from 'react'
+import Link from 'next/link'
 
 type formProps = {
     name: string
@@ -92,8 +93,14 @@ export default function SignupForm() {
                 <input name="email" type="text" onChange={handleForm}  placeholder="email address.." className={`input input-bordered input-group-md w-full max-w-xs ${error ? "input-error" : ""}`} />    
                 <input name="password" type="text" onChange={handleForm}  placeholder="password" className={`input input-bordered input-group-md w-full max-w-xs ${error ? "input-error" : ""}`} />    
             </div>
-            <div>
+            <div className='flex justify-between'>
                 <button className='btn btn-success'>Register</button>
+                <p className='w-1/2'>
+                    Already have an account? 
+                    <span className='link text-sm '>
+                        <Link href="/user/account/login">Log in</Link>
+                    </span>
+                </p>
             </div>     
         
         </form>

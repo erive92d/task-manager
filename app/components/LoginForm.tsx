@@ -1,4 +1,5 @@
 
+"use client"
 import { signIn } from 'next-auth/react'
 import Link from 'next/link'
 import React, { FormEvent, useState } from 'react'
@@ -71,12 +72,9 @@ export default function LoginForm() {
               <input name="email" onChange={handleFormChange} type="text" placeholder="email" className="input input-bordered w-full max-w-xs" />
               <input name="password" onChange={handleFormChange} type="text" placeholder="password" className="input input-bordered w-full max-w-xs" />    
             </div>
-            <div className='flex gap-2'>
-              <button  className='btn btn-success'>Login</button>
-              <Link href="/user/account/register">
-                <button className='btn btn-info'>Signup</button>
-    
-              </Link>
+            <div className='flex justify-center'>
+              <button  className='btn btn-success btn-wide'>Login</button>
+              
             </div>     
             
           </form>

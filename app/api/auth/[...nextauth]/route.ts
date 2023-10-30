@@ -27,8 +27,7 @@ export const authOptions: AuthOptions = {
 
                     return user
                 } catch (error) {
-                    
-                    console.log(error)
+                    throw new Error("failed to login")
                 }
                 
             }
