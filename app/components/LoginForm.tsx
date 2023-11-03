@@ -69,8 +69,8 @@ export default function LoginForm() {
           {error && <h1 className='bg-red-500 p-2 rounded-xl text-white'>{error}</h1>}
           <form onSubmit={handleLogin} className='space-y-2'>
             <div className='text-white flex flex-col gap-2'>
-              <input name="email" onChange={handleFormChange} type="text" placeholder="email" className="input input-bordered w-full max-w-xs" />
-              <input name="password" onChange={handleFormChange} type="text" placeholder="password" className="input input-bordered w-full max-w-xs" />    
+              <input name="email" onChange={handleFormChange} type="email" placeholder="email" className="input input-bordered w-full max-w-xs" />
+              <input name="password" onChange={handleFormChange} type="password" placeholder="password" className="input input-bordered w-full max-w-xs" />    
             </div>
             <div className='flex justify-center'>
               <button  className='btn btn-success btn-wide'>Login</button>

@@ -1,25 +1,22 @@
 "use client"
 
-import { signOut } from "next-auth/react"
-import { useSession } from "next-auth/react"
-import TaskLists from "./TaskLists";
+import Link from "next/link";
 
-export default function UserInfo() {
-    const { data:session } = useSession();
+interface SessionProps {
+    data:any
+}
 
-    if(!session) {
-        return <h1>Loading</h1>
-    }
-
+export default function UserInfo({data: {user}}:SessionProps) {
+  
   return (
-    <div className="bg-white  flex flex-col mx-auto rounded-md p-2">
-            <div className="border-b py-4">
-                <h1 className="text-2xl font-bold">Welcome {session.user?.name}!</h1>
-            </div>
-            <div>
-                <TaskLists/>
-            </div>
-       
-    </div>
+  
+        <div className="flex  justify-between border-b py-4 px-2">
+            <h1 className="text-2xl font-bold">Welcome {user?.name}!</h1>
+            <Link href="/add-task">
+                <button className='btn btn-sm btn-success text-white'>
+                    +
+                </button>
+            </Link>
+        </div>
   )
 }

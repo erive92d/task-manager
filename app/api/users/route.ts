@@ -2,9 +2,12 @@ import { NextResponse } from "next/server";
 import connect from "@/db";
 import User from "@/models/User"
 import { getServerSession } from "next-auth";
+import { authOptions } from "../auth/[...nextauth]/route";
 
 export const GET = async (request: any) => {
-    const session = await getServerSession()
+  
+    const session = await getServerSession(authOptions)
+    console.log(session,"server")
     if(!session) {
         return new NextResponse(
             JSON.stringify({

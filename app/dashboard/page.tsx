@@ -1,20 +1,22 @@
+"use client"
 import React from 'react'
 import UserInfo from '../components/UserInfo'
 import Link from 'next/link'
-
-export default async function Home() {
+import { useSession } from 'next-auth/react';
+import TaskLists from '../components/TaskLists';
+export default function Home() {
   
+    const { data:session } = useSession();
+
+    if(!session) {
+        return <h1>Loading</h1>
+    }
+
+
   return (
-    <div className='p-4'>
-        <div className='flex justify-between py-2'>
-          <h1 className='text-2xl font-bold'>Dashboard</h1>
-          <Link href="/add-task">
-            <button className='btn btn-sm btn-success text-white'>
-              +
-            </button>
-          </Link>
-        </div>
-          <UserInfo />
+    <div className="bg-white flex flex-col mx-auto rounded-md w-96">
+          <UserInfo data={session}/>
+          <TaskLists/>
     </div>
   )
 }

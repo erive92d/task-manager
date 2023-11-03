@@ -30,16 +30,32 @@ export const authOptions: AuthOptions = {
                     throw new Error("failed to login")
                 }
                 
-            }
+            },
+            
         })
+        ,
+        
     ],
-    session: {
-        strategy: "jwt"
-    },
+    
     secret: process.env.NEXTAUTH_SECRET,
     pages: {
         signIn: "/user/account/login"
-    }
+    },
+    
+    session: {
+        strategy: 'jwt',
+      },
+    // callbacks: {
+    //     jwt: async ({token, user}) => {
+    //         user && (token.user = user)
+    //         return token
+    //     },
+    //     async session({ session, token, user }) {
+    //         // Send properties to the client, like an access_token from a provider.
+    //         session.accessToken = token.accessToken
+    //         return session
+    //       }
+    // },
 }
 
 const handler = NextAuth(authOptions)

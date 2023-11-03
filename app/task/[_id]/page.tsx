@@ -1,15 +1,25 @@
-import { getSingleTask } from '@/controllers/getSingleTask'
-import React from 'react'
+"use client"
 
-type TaskProps = {
+import { getSingleTask } from '@/controllers/getSingleTask'
+import { TaskProps } from '@/props'
+import React, { useEffect, useState } from 'react'
+
+type ParamProps = {
   params: {
     _id:string
   }
 }
 
-export default async function grabTask({params}:TaskProps) {
+export default  function GrabTask({params}:ParamProps) {
 
-  const task = await getSingleTask(params._id)
+  const [task, setTask] = useState<TaskProps | null>(null)
+
+  useEffect(() => {
+    getSingleTask(params._id)
+    .then(res => setTask(res))
+  }, [params])
+
+  if(!task) return <h1>Loading</h1>
 
   return (
     <div className='flex flex-col justify-center items-center h-96'>
@@ -18,7 +28,7 @@ export default async function grabTask({params}:TaskProps) {
           <h1 className='text-2xl font-bold'>{task.title}</h1>
         </div>
         <div >
-          <textarea className='textarea bg-white textarea-lg p-1 textarea-bordered' value={task.description} />
+          <p>{task.description}</p>
         </div>
         <div>
           <h1>Priority</h1>

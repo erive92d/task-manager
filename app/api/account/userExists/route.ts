@@ -2,7 +2,7 @@ import connect from "@/db";
 import User from "@/models/User";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(req:NextRequest) {
+export async function POST(req:Request) {
     try {
         await connect()
         //we are grabbing the email provided by user

@@ -1,8 +1,9 @@
 
-export async function getTasks () {
-    const res = await fetch("http://localhost:3000/api/users")
+export async function getTasks (email:string) {
+    const res = await fetch(`http://localhost:3000/api/users/${email}`)
+  
     if(!res.ok) {
         throw new Error("Failed to fetch data")
     }
-    return res.json()
+    return await res.json()
 }

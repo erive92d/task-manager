@@ -90,8 +90,8 @@ export default function SignupForm() {
         <form onSubmit={handleCreate} className='space-y-2'>
             <div className='text-white flex flex-col gap-2'>
                 <input name="name" type="text" onChange={handleForm} placeholder="full name.." className={`input input-bordered input-group-md w-full max-w-xs ${error ? "input-error" : ""}`} />
-                <input name="email" type="text" onChange={handleForm}  placeholder="email address.." className={`input input-bordered input-group-md w-full max-w-xs ${error ? "input-error" : ""}`} />    
-                <input name="password" type="text" onChange={handleForm}  placeholder="password" className={`input input-bordered input-group-md w-full max-w-xs ${error ? "input-error" : ""}`} />    
+                <input name="email" type="email" onChange={handleForm}  placeholder="email address.." className={`input input-bordered input-group-md w-full max-w-xs ${error ? "input-error" : ""}`} />    
+                <input name="password" type="password" onChange={handleForm}  placeholder="password" className={`input input-bordered input-group-md w-full max-w-xs ${error ? "input-error" : ""}`} />    
             </div>
             <div className='flex justify-between'>
                 <button className='btn btn-success'>Register</button>
